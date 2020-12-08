@@ -1,0 +1,2 @@
+mood.html
+9줄 src Mood 게임폴더로 지정

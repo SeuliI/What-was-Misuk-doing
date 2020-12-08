@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | 1week</title>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" style="width: 600px; height: 337px; background: #231F20; margin: 0px;"></canvas>
+    <script src="Build/Mood6.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/Mood6.data",
+        frameworkUrl: "Build/Mood6.framework.js",
+        codeUrl: "Build/Mood6.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "1week",
+        productVersion: "1.0",
+      });
+    </script>
+  </body>
+</html>
