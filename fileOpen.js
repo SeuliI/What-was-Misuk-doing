@@ -31,10 +31,11 @@ document.getElementById("homeExit").onclick = function(){
 //mad
 document.getElementById("madIcon").ondblclick = function(){
 	document.getElementById("madClick").style.display="block";
+	document.getElementById("madClickVid").src = "https://www.youtube.com/embed/UCIr5ZcpLEU";
 }
 document.getElementById("madExit").onclick = function(){
 	document.getElementById("madClick").style.display="none";
-	document.getElementById("madClickVid").pause();
+	document.getElementById("madClickVid").src = "";
 }
 //pingpong
 document.getElementById("pingpongIcon").ondblclick = function(){
