@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>What Was MiSuk Doing?</title>
+
+<script src="imageMove.js"></script>
+<style type="text/css">@import url(mouseText.css);</style>
+<style type="text/css">@import url(note.css);</style>
+<style>
+	body{
+		margin: 0;
+		background-color: #ACACAC;
+	}
+	/*Top bar*/
+	.icon{
+		z-index: 1;
+	}
+	.menu{
+		margin-right: 20px;
+	}
+	.nav-container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background-color: #0E0E0E;
+		list-style-type: none;
+		position: fixed;
+		top: 0;
+		opacity: 0.8;
+	}
+	.nav-item {
+		padding: 1px;
+		cursor: pointer;
+		font-size: 12px;
+		margin-top: 3px;
+	}
+	.nav-item a {
+		text-align: center;
+		text-decoration: none;
+		color: white;
+	}
+	header {
+		margin-top: 80px;
+	}
+</style>
+<script type="text/javascript">
+	function open1() {
+		var image = document.getElementById('MisukDrawing0');
+		var background = document.getElementById('background');
+		image.style.display = 'block';
+		background.style.display = 'block';
+	}
+</script>
+</head>
+
+<body>
+<!-- Top bar -->
+	<img src="image/rightTop.png" style="position:fixed;right: 0%;height: 15px;z-index: 1;margin-top: 4px; margin-right: 15px;">
+	<nav>
+		<ul class="nav-container">
+			<li class="nav-item"><a href=""><img src="image/powerIcon.png" style="margin-top:0px;margin-left:20px; margin-right:20px; width: auto; height: 16px; "></a></li>
+			<li class="nav-item"><a href=""><span class="menu"><b>MiSuk</b></span></a></li>
+			<li class="nav-item"><a href=""><span class="menu">파일</span></a></li>
+			<li class="nav-item"><a href=""><span class="menu">편집</span></a></li>
+			<li class="nav-item"><a href=""><span class="menu">보기</span></a></li>
+			<li class="nav-item"><a href=""><span class="menu">도움말</span></a></li>
+		</ul>
+	</nav>
+<!-- 3dObj -->
+	<img class="icon" src="image/3dObj.png" style="position:absolute; left:120px; top:410px; cursor:pointer; cursor:hand; border:0;  height:100px;" onmousedown="startDrag(event, this)">
+<!-- 3dObj2 -->
+	<img class="icon" src="image/3dObj2.png" style="position:absolute; left:10px; top:500px; cursor:pointer; cursor:hand; border:0; height:200px;" onmousedown="startDrag(event, this)">
+<!-- mood -->
+	<img class="icon"src="image/mood.png" id="moodIcon" style="position:absolute; left:120px; top:200px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
+	<div id="moodClick"style="display:none; position:fixed; top:100px; left:100px; z-index: 2; " onmousedown="startDrag(event, this)">
+		<img src="image/moodExit.png" id="moodExit" style="z-index:3;position:absolute; cursor: pointer; width:31px;">
+		<img src="image/moodBar.png" style="z-index:2; width:603px;position:static; cursor: pointer;display:block;">
+		<iframe id="moodIframe" src="mood/Mood6/index.html" scrolling="no" width="600" height="337" frameborder="0" marginheight="0" marginwidth="0" style="display:block;position:static;box-shadow: 5px 5px 5px"></iframe>
+		
+	</div>
+<!-- 	<div id="moodClick" style="display: none; position: fixed; top:500px; left:100px;z-index:2;" onmousedown="startDrag(event, this)" >
+		<img src="image/moodExit.png" id="moodExit" style="z-index:2;position:absolute; cursor: pointer; width:31px;">
+		<img src="image/moodClick.png" style="position:absolute;box-shadow: 5px 5px 5px;width: 610px;">
+	</div> -->
+<!-- pingpong -->
+<img class="icon"src="image/pingpong.png" id="pingpongIcon" style="position:absolute; left:700px; top:200px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
+	<div id="pingpongClick"style="display:none; position:fixed; top:100px; left:100px; z-index: 2; " onmousedown="startDrag(event, this)">
+		<img src="image/moodExit.png" id="pingpongExit" style="z-index:3;position:absolute; cursor: pointer; width:30px;">
+		<img src="image/pingpongBar.png" style="z-index:2; width:603px;position:static; cursor: pointer;display:block;">
+		<iframe id="pingpongIframe" src="" scrolling="no" width="600" height="337" frameborder="0" marginheight="0" marginwidth="0" style="display:block;position:static;box-shadow: 5px 5px 5px"></iframe>
+		
+	</div>
+<!-- RTF	 -->
+	<img class="icon"src="image/RTF.png" id="RTFicon" style="position:absolute; left:130px; top:300px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
+	<div id="RTFclick" style="display: none; position: fixed; top:50px; left:30px; z-index:2;" onmousedown="startDrag(event, this)" >
+		<img src="image/exit.jpg" id="RTFexit" style="z-index:2;position:absolute; top: 2px; left: 5px; cursor: pointer;">
+		<img src="image/RTFclick.gif" style="z-index:1;width: 600px; position:absolute;">
+		<img src="image/RTFclick.png" style="width: 600px; position:absolute;box-shadow: 5px 5px 5px">
+	</div>
+<!-- knife -->
+	<img class="icon"src="image/knife.png" id="knifeIcon" style="position:absolute; left:400px; top:300px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
+	<div id="knifeClick" style="display: none; position: fixed; top:300px; left:400px;z-index:2;" onmousedown="startDrag(event, this)" >
+		<img src="image/moodExit.png" id="knifeExit" style="z-index:2;position:absolute; cursor: pointer; width:30px;">
+		<img src="image/KnifeBar.png" style="z-index:2; width:649px; position:static; cursor: pointer;display:block;">
+		<iframe id="moodIframe" src="Knife/index.html" scrolling="no" width="649" height="395" frameborder="0" marginheight="0" marginwidth="0" style="display:block;position:static;box-shadow: 5px 5px 5px"></iframe>
+	</div>
+<!-- home -->
+	<img class="icon"src="image/home.png" id="homeIcon" style="position:absolute; left:408px; top:420px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
+	<div id="homeClick" style="display: none; position: fixed; top:30px; left:350px;z-index:2;" onmousedown="startDrag(event, this)" >
+		<img src="image/moodExit.png" id="homeExit" style="z-index:2;position:absolute; cursor: pointer; width:31px;">
+		<img src="image/homeClick.png" style="position:absolute;box-shadow: 5px 5px 5px;width: 610px;">
+	</div>
+	<!-- mad -->
+	<img class="icon"src="image/mad.png" id="madIcon" style="position:absolute; left:398px; top:540px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
+	<div id="madClick" style="display: none; position: fixed; top:30px; left:350px;z-index:2;" onmousedown="startDrag(event, this)" >
+		<img src="image/moodExit.png" id="madExit" style="z-index:2;position:absolute; cursor: pointer; width:31px;">
+		<img src="image/madClick.png" style="position:absolute;width: 610px;">
+		<div><video id="madClickVid" src="media/이슬이_엄마와딸.mp4" controls="true" style="width:611px;box-shadow: 5px 5px 5px;" ></video></div>
+	</div>
+
+<!-- 
+	<div class="floating" onmousedown="startDrag(event, this)" >
+		<div class="card-object rotate">
+		<header></header>
+		<aside></aside>
+		<main><blockquote class="message">나는 오늘 <em class="forgotten">떡볶이</em> 를 먹었다. <em class="forget">치킨이 맛있더라</em> 국물 나쁘지 않았어 <em class="forget">효재</em> 랑 맛있게 먹음.</blockquote></main>
+		<footer class="author">슬이</footer>
+		</div>
+	</div> -->
+
+<!-- Bitsy -->
+	<img class="icon" id="BitsyIcon" src="image/Bitsy3d_home.png" style="position:absolute; left:700px; top:540px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
+
+	<div id="BitsyClick" style="display: none;position: fixed;top: 30px; left: 350px; z-index: 2; margin-bottom: 0px; padding: 0px;" onmousedown="startDrag(event, this)">
+		<img src="image/Bitsy3d_homeBar.png" style="position: absolute;width: 600px;box-shadow: ">
+		<img src="image/moodExit.png" id="BitsyExit" style="z-index:2;position:absolute; cursor: pointer; width:30px;">
+		<iframe src="Bitsy3D_home.html" style=";width: 600px;height:600px;border: 0;margin-top: 26px;margin-bottom: 0;box-shadow: 5px 5px 5px;"></iframe>
+	</div>
+	
+
+<!-- MisukDrawing0 -->
+	<img class="icon" src="image/drawing.png" style="position:absolute; left:10px; top:50px; cursor:pointer; cursor:hand; border:0; height:90px;" onclick="document.getElementById('background0').style.display = 'block';">
+	<div id="background0" style="display:none;" onclick="this.style.display = 'none';">
+		<div style="position:absolute; display:block;width: 100%;height: 100%;background-color: black;opacity: 0.7;z-index: 30;"></div>
+		<img id="MisukDrawing0" src="image/MisukDrawing0.png" style="display:block;position:absolute;top: 50%;left:50%; height:50%; z-index: 31;transform: translate(-50%, -50%);">
+	</div>
+
+<!-- MisukDrawing1 -->
+	<img class="icon" src="image/drawing1.png" style="position:absolute; left:130px; top:52px; cursor:pointer; cursor:hand; border:0; height:90px;" onclick="document.getElementById('background1').style.display = 'block';">
+	<div id="background1" style="display:none;" onclick="this.style.display = 'none';">
+		<div style="position:absolute; display:block;width: 100%;height: 100%;background-color: black;opacity: 0.7;z-index: 30;"></div>
+		<img id="MisukDrawing1" src="image/MisukDrawing1.png" style="display:block;position:absolute;top: 50%;left:50%; height:35%; z-index: 31;transform: translate(-50%, -50%);">
+	</div>
+<!-- KnifeHintIcon -->
+	<img class="icon" src="image/KnifeIcon.png" style="position:absolute; left:250px; top:50px; cursor:pointer; cursor:hand; border:0; height:90px;" onclick="document.getElementById('background2').style.display = 'block';">
+	<div id="background2" style="display:none;" onclick="this.style.display = 'none';">
+		<div style="position:absolute; display:block;width: 100%;height: 100%;background-color: black;opacity: 0.7;z-index: 30;"></div>
+		<img src="image/KnifeHint.png" style="display:block;position:absolute;top: 50%;left:50%; height:35%; z-index: 31;transform: translate(-50%, -50%);">
+	</div>
+
+	
+
+
+	
+
+<script src="fileOpen.js"></script>
+<!-- <script src="mouseText.js"></script> -->
+</body>
+</html>
