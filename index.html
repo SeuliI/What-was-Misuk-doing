@@ -43,7 +43,7 @@
 		color: white;
 	}
 	header {
-		margin-top: 80px;
+		margin-top: 80px; 
 	}
 </style>
 <script type="text/javascript">
@@ -54,6 +54,8 @@
 		background.style.display = 'block';
 	}
 </script>
+<script src="p5/p5.js"></script>
+<script src="sketch/test1.js"></script>
 </head>
 
 <body>
@@ -89,7 +91,7 @@
 <img class="icon"src="image/pingpong.png" id="pingpongIcon" style="position:absolute; left:700px; top:200px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
 	<div id="pingpongClick"style="display:none; position:fixed; top:100px; left:100px; z-index: 2; " onmousedown="startDrag(event, this)">
 		<img src="image/moodExit.png" id="pingpongExit" style="z-index:3;position:absolute; cursor: pointer; width:30px;">
-		<img src="image/pingpongBar.png" style="z-index:2; width:603px;position:static; cursor: pointer;display:block;">
+		<img src="image/PingpongBar.png" style="z-index:2; width:603px;position:static; cursor: pointer;display:block;">
 		<iframe id="pingpongIframe" src="" scrolling="no" width="600" height="337" frameborder="0" marginheight="0" marginwidth="0" style="display:block;position:static;box-shadow: 5px 5px 5px"></iframe>
 		
 	</div>
@@ -118,7 +120,7 @@
 	<div id="madClick" style="display: none; position: fixed; top:30px; left:350px;z-index:2;" onmousedown="startDrag(event, this)" >
 		<img src="image/moodExit.png" id="madExit" style="z-index:2;position:absolute; cursor: pointer; width:31px;">
 		<img src="image/madClick.png" style="position:absolute;width: 610px;">
-		<div><video id="madClickVid" src="media/이슬이_엄마와딸.mp4" controls="true" style="width:611px;box-shadow: 5px 5px 5px;" ></video></div>
+		<div><iframe id="madClickVid" width="611" height="348" style="position:relative; top:27px;" src="https://www.youtube.com/embed/UCIr5ZcpLEU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 	</div>
 
 <!-- 
@@ -135,9 +137,9 @@
 	<img class="icon" id="BitsyIcon" src="image/Bitsy3d_home.png" style="position:absolute; left:700px; top:540px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
 
 	<div id="BitsyClick" style="display: none;position: fixed;top: 30px; left: 350px; z-index: 2; margin-bottom: 0px; padding: 0px;" onmousedown="startDrag(event, this)">
-		<img src="image/Bitsy3d_homeBar.png" style="position: absolute;width: 600px;box-shadow: ">
+		<img src="image/Bitsy3d_homeBar.png" style="position: absolute;width: 600px;">
 		<img src="image/moodExit.png" id="BitsyExit" style="z-index:2;position:absolute; cursor: pointer; width:30px;">
-		<iframe src="Bitsy3D_home.html" style=";width: 600px;height:600px;border: 0;margin-top: 26px;margin-bottom: 0;box-shadow: 5px 5px 5px;"></iframe>
+		<iframe src="Bitsy3D_home.html" style="width: 600px;height:600px;border: 0;margin-top: 26px;margin-bottom: 0;box-shadow: 5px 5px 5px;"></iframe>
 	</div>
 	
 
@@ -161,6 +163,14 @@
 		<img src="image/KnifeHint.png" style="display:block;position:absolute;top: 50%;left:50%; height:35%; z-index: 31;transform: translate(-50%, -50%);">
 	</div>
 
+<!-- canvas test -->
+	<img class="icon" id="BitsyIcon" src="image/Bitsy3d_home.png" style="position:absolute; left:700px; top:540px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)">
+
+	<div id="BitsyClick" style="display: none;position: fixed;top: 30px; left: 350px; z-index: 2; margin-bottom: 0px; padding: 0px;" onmousedown="startDrag(event, this)">
+		<img src="image/Bitsy3d_homeBar.png" style="position: absolute;width: 600px;">
+		<img src="image/moodExit.png" id="BitsyExit" style="z-index:2;position:absolute; cursor: pointer; width:30px;">
+		<iframe src="Bitsy3D_home.html" style="width: 600px;height:600px;border: 0;margin-top: 26px;margin-bottom: 0;box-shadow: 5px 5px 5px;"></iframe>
+	</div>
 	
 
 
