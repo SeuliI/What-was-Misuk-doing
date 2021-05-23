@@ -52,5 +52,8 @@ document.getElementById("BitsyIcon").ondblclick = function(){
 }
 document.getElementById("BitsyExit").onclick = function(){
 	document.getElementById("BitsyClick").style.display="none";
-
+}
+//file
+document.getElementById("fileExit").onclick = function(){
+	document.getElementById("file").style.display="none";
 }

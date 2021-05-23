@@ -35,16 +35,52 @@
 		padding: 1px;
 		cursor: pointer;
 		font-size: 12px;
-		margin-top: 3px;
-	}
-	.nav-item a {
+		margin-top: 3px;		
 		text-align: center;
 		text-decoration: none;
+		color: white;
+	}
+	.nav-extend{
+		display: none; 
+		position:absolute;
+		z-index: 30;
+		top:23px;
+		background-color: #0E0E0E;
+		opacity: 0.8;
+		box-shadow: 1px 1px 5px 3px rgba(0,0,0,0.5);
 		color: white;
 	}
 	header {
 		margin-top: 80px; 
 	}
+	.nav-extend div {
+	padding: 10px;
+	padding-bottom: 0px;
+	width: 100px;
+	font-size: 12px;
+}
+.resizable::-webkit-scrollbar{
+	width:10px;
+}
+/*.resizable::-webkit-scrollbar-button{
+	display:none;
+}
+.resizable::-webkit-scrollbar-track{
+	display: none;
+}*/
+.resizable::-webkit-scrollbar-corner{
+	display: none;
+}
+.resizable::-webkit-resizer{
+	display:none;
+}
+.resizable::-webkit-scrollbar-thumb {
+	background-color: hsla(0,0%,20%,0.5);
+	border-radius: 100px;
+}
+/*.resizable::-webkit-scrollbar-track-piece{
+ 	display: none;
+}*/
 </style>
 <script type="text/javascript">
 	function open1() {
@@ -60,17 +96,42 @@
 
 <body>
 <!-- Top bar -->
-	<img src="image/rightTop.png" style="position:fixed;right: 0%;height: 15px;z-index: 1;margin-top: 4px; margin-right: 15px;">
+	<!-- <img src="image/rightTop.png" style="position:fixed;right: 0%;height: 15px;z-index: 1;margin-top: 4px; margin-right: 15px;"> -->
 	<nav>
 		<ul class="nav-container">
 			<li class="nav-item"><a href=""><img src="image/powerIcon.png" style="margin-top:0px;margin-left:20px; margin-right:20px; width: auto; height: 16px; "></a></li>
-			<li class="nav-item"><a href=""><span class="menu"><b>MiSuk</b></span></a></li>
-			<li class="nav-item"><a href=""><span class="menu">파일</span></a></li>
-			<li class="nav-item"><a href=""><span class="menu">편집</span></a></li>
-			<li class="nav-item"><a href=""><span class="menu">보기</span></a></li>
-			<li class="nav-item"><a href=""><span class="menu">도움말</span></a></li>
+			<li class="nav-item"><span class="menu"><b>MiSuk</b></span></li>
+			<li class="nav-item"><span class="menu">파일</span></li>
+			<li class="nav-item"><span class="menu">편집</span></li>
+			<li class="nav-item"><span class="menu">보기</span></li>
+			<li class="nav-item" onclick="show('helpOnMouseOver')">
+				<span class="menu">도움말</span>			
+			</li>
 		</ul>
-	</nav>
+	</nav>	
+
+
+
+
+	<span class="nav-extend" id="helpOnMouseOver" style=" left:250px;" onclick="show('helpOnMouseOver')">
+		<div onclick="show('file')">사이트 설명</div>
+		<div >문서 2</div>
+		<div style="padding-bottom: 10px;">문서 3</div>
+	</span>
+
+
+
+	<script type="text/javascript">
+		function show(target){
+			let a = document.getElementById(target).style;
+			if(a.display == 'block'){
+				a.display = 'none';
+			}else
+				a.display = 'block';
+		}
+	</script>
+
+	
 <!-- 3dObj -->
 	<img class="icon" src="image/3dObj.png" style="position:absolute; left:120px; top:410px; cursor:pointer; cursor:hand; border:0;  height:100px;" onmousedown="startDrag(event, this)">
 <!-- 3dObj2 -->
@@ -172,7 +233,50 @@
 
 	
 
+		<div  id="file" style="display:none;z-index: 2; position: absolute; left: 400px; top: 400px; border-radius: 8px;box-shadow: 4px 4px 10px 5px rgba(0,0,0,0.2);" >
+			<div style=";height:25px;/*position:absolute;*/background:linear-gradient(to bottom, white , #bbbbbb 4%, #aaaaaa);border-top-right-radius: 8px;border-top-left-radius: 8px;"onmousedown="startDrag(event, file)">
 
+				
+				<div  style="margin-left: 8px;margin-top: 5px;display: inline-block;background-color: #ff5f58; width: 14px; height:14px; border-radius: 7px;"
+				onclick="exit('file')"></div>
+				<div style="margin-left: 4px;margin-top: 5px;display: inline-block;background-color: #ffbd2d; width: 14px; height:14px; border-radius: 7px;"></div> 
+				<div style="margin-left: 4px;margin-top: 5px;display: inline-block;background-color: #28ca41; width: 14px; height:14px; border-radius: 7px;"
+				onclick="fullSize('resizable','file')"></div> 
+				<div style="display:inline-block;text-align: center; width:;position: absolute; left: 50%; transform: translate(-50%,0);z-index: 2;margin: 0 auto;">사이트설명</div>
+
+			</div>
+
+			<div id="resizable" class="resizable" style="background-image: url(image/pattern.png); align-content: center; resize: both; overflow:overlay; width: 650px; height: 400px; min-height: 400px; min-width: 500px; border-bottom-left-radius:8px;border-bottom-right-radius: 8px;" ><div style="background-color: white; margin-left: 100px;margin-top: 20px;margin-bottom: 20px;margin-right: 100px; height: 1000px; box-shadow: 2px 2px 2px 2px black;padding: 30px 50px;">inside</div>
+			</div>
+		</div>
+
+	
+<script type="text/javascript">
+	function exit(element){
+		let a = document.getElementById(element).style;
+		a.display = "none";
+	}
+	function fullSize(element, element2){
+		let a = document.getElementById(element).style;
+		let b = document.getElementById(element2).style;
+		if(a.width == '100%'){
+			a.width = '500px';
+			a.height = '400px'; 
+			b.width = '';
+			b.left = '400px';
+			b.top = '400px';
+
+		}else{
+			a.height = '100%';
+			b.width = '100%';
+			a.width = '100%';
+			
+			b.left = '0px';
+			b.top = '0px';
+		}
+		
+	}
+</script>
 	
 
 <script src="fileOpen.js"></script>
