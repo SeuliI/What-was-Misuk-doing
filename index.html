@@ -29,18 +29,28 @@
 		list-style-type: none;
 		position: fixed;
 		top: 0;
-		opacity: 0.8;
+		
 	}
-	.nav-item {
-		padding: 1px;
-		cursor: pointer;
+	.topbar{
+		width:100%;
+		height: 22px;
+		background-color: #0e0e0e;opacity: 0.8;
 		font-size: 12px;
-		margin-top: 3px;		
-		text-align: center;
-		text-decoration: none;
 		color: white;
 	}
+	.topbar span{
+		display: inline-block;
+		height:20px;
+		padding:0px 10px;
+		padding-top: 2px;
+		border-radius: 5px;
+	}
+	.topbar span:hover{
+		color: blue;
+	}
+
 	.nav-extend{
+		cursor: pointer;
 		display: none; 
 		position:absolute;
 		z-index: 30;
@@ -49,43 +59,45 @@
 		opacity: 0.8;
 		box-shadow: 1px 1px 5px 3px rgba(0,0,0,0.5);
 		color: white;
+		
+		padding:3px;
 	}
 	.nav-extend div:hover{
-		background-color: white;
-		color: black;
+		background-color: blue;
+
 	}
 	header {
 		margin-top: 80px; 
 	}
 	.nav-extend div {
-	padding: 10px;
-	padding-bottom: 0px;
-	width: 100px;
-	font-size: 12px;
+		padding: 10px;
+		padding-left: 10px;
+		width: 100px;
+		font-size: 12px;
 
-}
-.resizable::-webkit-scrollbar{
-	width:10px;
-}
-/*.resizable::-webkit-scrollbar-button{
-	display:none;
-}
-.resizable::-webkit-scrollbar-track{
-	display: none;
-}*/
-.resizable::-webkit-scrollbar-corner{
-	display: none;
-}
-.resizable::-webkit-resizer{
-	display:none;
-}
-.resizable::-webkit-scrollbar-thumb {
-	background-color: hsla(0,0%,20%,0.5);
-	border-radius: 100px;
-}
-/*.resizable::-webkit-scrollbar-track-piece{
- 	display: none;
-}*/
+	}
+	.resizable::-webkit-scrollbar{
+		width:10px;
+	}
+	/*.resizable::-webkit-scrollbar-button{
+		display:none;
+	}
+	.resizable::-webkit-scrollbar-track{
+		display: none;
+	}*/
+	.resizable::-webkit-scrollbar-corner{
+		display: none;
+	}
+	.resizable::-webkit-resizer{
+		display:none;
+	}
+	.resizable::-webkit-scrollbar-thumb {
+		background-color: hsla(0,0%,20%,0.5);
+		border-radius: 100px;
+	}
+	/*.resizable::-webkit-scrollbar-track-piece{
+	 	display: none;
+	}*/
 </style>
 <script type="text/javascript">
 	function open1() {
@@ -94,6 +106,15 @@
 		image.style.display = 'block';
 		background.style.display = 'block';
 	}
+    setInterval(function(){
+         
+        var timer = new Date();
+        var h = timer.getHours();
+        var m = timer.getMinutes();
+        var s = timer.getSeconds();
+        document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+    },1000);
+
 </script>
 <script src="p5/p5.js"></script>
 <script src="sketch/test1.js"></script>
@@ -102,18 +123,27 @@
 <body>
 <!-- Top bar -->
 	<!-- <img src="image/rightTop.png" style="position:fixed;right: 0%;height: 15px;z-index: 1;margin-top: 4px; margin-right: 15px;"> -->
-	<nav>
+<!-- 	<nav>
 		<ul class="nav-container">
-			<li class="nav-item"><a href=""><img src="image/powerIcon.png" style="margin-top:0px;margin-left:20px; margin-right:20px; width: auto; height: 16px; "></a></li>
-			<li class="nav-item"><span class="menu"><b>MiSuk</b></span></li>
+			<li class="nav-item"><a href=""><img src="image/powerIcon.png" style="padding: 0px 20px; width: auto; height: 16px; "></a></li>
+			<li class="nav-item"><span class="menu"></span></li>
 			<li class="nav-item"><span class="menu">파일</span></li>
 			<li class="nav-item"><span class="menu">편집</span></li>
 			<li class="nav-item"><span class="menu">보기</span></li>
-			<li class="nav-item" onclick="show('helpOnMouseOver')">
+			<li class="nav-item" >
 				<span class="menu">도움말</span>			
 			</li>
 		</ul>
-	</nav>	
+	</nav>
+ -->
+	<div class="topbar">
+		<img src="image/powerIcon.png" style="border: ;height: 16px; display: inline-block;position: absolute;top: 2px;padding-left: 20px; padding-right: 20px;">
+		<span><b>MiSuk</b></span>
+		<span>파일</span>
+		<span>편집</span>
+		<span>보기</span>
+		<span onclick="show('helpOnMouseOver')">도움말</span>
+	</div>
 
 
 
@@ -121,7 +151,7 @@
 	<span class="nav-extend" id="helpOnMouseOver" style=" left:250px;" onclick="show('helpOnMouseOver')">
 		<div onclick="show('file')" >사이트 설명</div>
 		<div >문서 2</div>
-		<div style="padding-bottom: 10px;">문서 3</div>
+		<div >문서 3</div>
 	</span>
 
 
@@ -135,6 +165,8 @@
 				a.display = 'block';
 		}
 	</script>
+
+	<span id="clock" style="position: absolute;right: 20px;z-index: 3; color: white;"></span>
 
 	
 <!-- 3dObj -->
