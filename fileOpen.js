@@ -60,5 +60,5 @@ document.getElementById("fileExit").onclick = function(){
 //WeNeedSleep
 document.getElementById("needSleepIcon").ondblclick = function(){
 	document.getElementById("needSleep").style.display = "block";
-	document.getElementById("needSleepIframe").src = "WeNeedSleep/index.html"
+	document.getElementById("needSleepIframe").src = "WeNeedSleep/index.html";
 }
