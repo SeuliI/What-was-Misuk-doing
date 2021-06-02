@@ -57,3 +57,8 @@ document.getElementById("BitsyExit").onclick = function(){
 document.getElementById("fileExit").onclick = function(){
 	document.getElementById("file").style.display="none";
 }
+//WeNeedSleep
+document.getElementById("needSleepIcon").ondblclick = function(){
+	document.getElementById("needSleep").style.display = "block";
+	document.getElementById("needSleepIframe").src = "WeNeedSleep/index.html"
+}

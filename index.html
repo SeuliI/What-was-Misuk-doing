@@ -288,11 +288,13 @@
 		</div>
 
 		<!-- WeNeedSleep -->
-		<div  id="needSleep" style="height: 774px;display:block;z-index: 2; position: absolute; left: 400px; top: 400px; border-radius: 8px;box-shadow: 4px 4px 10px 5px rgba(0,0,0,0.2);" >
+		<img class="icon" id="needSleepIcon" src="image/WeNeedSleep.png" style="position:absolute; left:850px; top:540px; cursor:pointer; cursor:hand; border:0; height:100px;" onmousedown="startDrag(event, this)" ondblclick="document.getElementById('needSleep').style.display = 'block';">
+
+		<div  id="needSleep" style="height: 774px; display:none; z-index: 2; position: absolute; left: 300px; top: 80px; border-radius: 8px;box-shadow: 4px 4px 10px 5px rgba(0,0,0,0.2);" >
 			<div style=";height:25px;/*position:absolute;*/background:linear-gradient(to bottom, white , #bbbbbb 4%, #aaaaaa);border-top-right-radius: 8px;border-top-left-radius: 8px;"onmousedown="startDrag(event, needSleep)">
 
 				<div  style="margin-left: 8px;margin-top: 5px;display: inline-block;background-color: #ff5f58; width: 14px; height:14px; border-radius: 7px;"
-				onclick="exit('needSleep')"></div>
+				onclick="exitNeedSleep()"></div>
 				<div style="margin-left: 4px;margin-top: 5px;display: inline-block;background-color: #ffbd2d; width: 14px; height:14px; border-radius: 7px;"></div> 
 				<div style="margin-left: 4px;margin-top: 5px;display: inline-block;background-color: #28ca41; width: 14px; height:14px; border-radius: 7px;"
 				onclick="fullSize('resizable','needSleep')"></div> 
@@ -300,9 +302,7 @@
 
 			</div>
 
-<!-- 			<div id="resizable" class="resizable" style="background-image: url(image/pattern.png); align-content: center; resize: both; overflow:overlay; width: 650px; height: 400px; min-height: 400px; min-width: 500px; border-bottom-left-radius:8px;border-bottom-right-radius: 8px;" ><div style="background-color: white; margin-left: 100px;margin-top: 20px;margin-bottom: 20px;margin-right: 100px; height: 1000px; box-shadow: 2px 2px 2px 2px black;padding: 30px 50px;">inside</div>
-			</div> -->
-			<iframe src="WeNeedSleep/index.html" width="1000" height="750" frameborder="0" scrolling="no"></iframe>
+			<iframe id="needSleepIframe" src="WeNeedSleep/index.html" width="1000" height="750" frameborder="0" scrolling="no" style="border-bottom-left-radius:8px;border-bottom-right-radius: 8px;"></iframe>
 		</div>
 
 
@@ -311,6 +311,10 @@
 	function exit(element){
 		let a = document.getElementById(element).style;
 		a.display = "none";
+	}
+	function exitNeedSleep(){
+		document.getElementById('needSleep').style.display = 'none';
+		document.getElementById('needSleepIframe').src = '';
 	}
 	function fullSize(element, element2){
 		let a = document.getElementById(element).style;
