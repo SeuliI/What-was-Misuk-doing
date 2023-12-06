@@ -22,12 +22,12 @@ document.getElementById("knifeExit").onclick = function(){
 	document.getElementById("knifeClick").style.display="none";
 }
 //home
-document.getElementById("homeIcon").ondblclick = function(){
-	document.getElementById("homeClick").style.display="block";
-}
-document.getElementById("homeExit").onclick = function(){
-	document.getElementById("homeClick").style.display="none";
-}
+// document.getElementById("homeIcon").ondblclick = function(){
+// 	document.getElementById("homeClick").style.display="block";
+// }
+// document.getElementById("homeExit").onclick = function(){
+// 	document.getElementById("homeClick").style.display="none";
+// }
 //mad
 document.getElementById("madIcon").ondblclick = function(){
 	document.getElementById("madClick").style.display="block";
